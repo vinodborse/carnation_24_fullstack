@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	
+<!--	Teacher t = new Teacher();
+    	t.setId(1);
+    	t.setName("Vinod");
+-->	
+	<bean class="com.ts.Teacher" name="tch">
+		<property name="id" value="1"></property>
+		<property name="name" value="Don Dada"></property>
+	</bean>
+	
+	<!-- Teacher tch = new Teacher(1, "Vinod"); -->
+	<bean class="com.ts.Teacher" name="thr">
+		<constructor-arg value="3"></constructor-arg>
+		<constructor-arg value="Anarkali"></constructor-arg>
+	</bean>
+	
+<!--	Student s = new Student();
+	s.setBatch(...);
+-->	
+	<bean class="com.ts.Student" name="std">
+		<property name="b">
+			<bean class="com.ts.Batch"></bean>
+		</property>
+	</bean>
+	
+	
+	<bean class="com.ts.Student" name="st">
+		<property name="b" ref="bh"></property>
+	</bean>
+	
+	<bean class="com.ts.Batch" name="bh"></bean>
+	
+	
+</beans>
