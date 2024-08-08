@@ -1,0 +1,20 @@
+package com.ts.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.ts.model.Bank;
+
+@Repository
+public interface BankRepository extends JpaRepository<Bank, Long>{
+
+	Optional<Bank> findByAccountNumber(Long accountNumber);
+	
+	@Query(value = "DELETE FROM bank WHERE account_number = :accNo", nativeQuery = true)
+	void deleteByAccNo(@Param("accNo") Long accNo);
+}
+
